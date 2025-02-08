@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo demasiado mi Jasonito y por eso...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            background-color: #1a1a2e;
+            color: white;
+            font-family: 'Baskerville', serif;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            margin-top: 50px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background-color: #555;
+            color: white;
+        }
+        .heart, .broken-heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 2s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Te amo demasiado mi Jasonito y por eso...</h1>
+    <div class="container">
+        <img src="https://i.postimg.cc/g0LJ0XvN/Captura-de-pantalla-2025-02-08-012217.png" alt="Dibujo de San Valentín">
+    </div>
+    <div class="buttons">
+        <button class="yes" onclick="accept()">Sí 💕</button>
+        <button class="no" onclick="decline()">No 💔</button>
+    </div>
+    <script>
+        function accept() {
+            document.getElementById("title").innerText = "YEYYYY";
+            let button = document.querySelector('.yes');
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = (button.offsetLeft + Math.random() * 50) + 'px';
+                heart.style.top = (button.offsetTop - Math.random() * 20) + 'px';
+                heart.style.animationDuration = (1 + Math.random()) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+        function decline() {
+            document.getElementById("title").innerText = "oh... okey :(";
+            let button = document.querySelector('.no');
+            for (let i = 0; i < 10; i++) {
+                let brokenHeart = document.createElement('div');
+                brokenHeart.classList.add('broken-heart');
+                brokenHeart.innerHTML = '💔';
+                brokenHeart.style.left = (button.offsetLeft + Math.random() * 50) + 'px';
+                brokenHeart.style.top = (button.offsetTop - Math.random() * 20) + 'px';
+                brokenHeart.style.animationDuration = (1 + Math.random()) + 's';
+                document.body.appendChild(brokenHeart);
+                setTimeout(() => brokenHeart.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
